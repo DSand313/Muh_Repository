@@ -16,7 +16,7 @@ ORDER BY 1,2
 -- 2.
 
 SELECT
-	location,
+    location,
     SUM(CAST(new_deaths as unsigned)) AS total_death_count
 FROM covid_deaths
 GROUP BY location
@@ -24,27 +24,27 @@ GROUP BY location
 -- 3.
 
 SELECT
-	location,
+    location,
     population,
     MAX(total_cases) AS highest_infection_count,
     MAX(total_cases / population) * 100 AS percent_population_infected
 FROM covid_deaths
 GROUP BY 
-	location,
+    location,
     population
 ORDER BY percent_population_infected DESC
 
 -- 4.
 
 SELECT
-	location,
+    location,
     population,
     date,
     MAX(total_cases) AS highest_infection_count,
     MAX(total_cases / population) * 100 AS percent_population_infected
 FROM covid_deaths
 GROUP BY 
-	location,
+    location,
     population,
     date
 ORDER BY percent_population_infected DESC
@@ -59,7 +59,7 @@ Queries used for analytics
 -- Looking at data for covid cases in all of North America for 2022 so far
 
 SELECT
-	location,
+    location,
     date, 
     total_cases,
     new_cases,
@@ -72,7 +72,7 @@ ORDER BY 1,2
 -- Shows likelihood of dying of covid in US in 2022
 
 SELECT
-	location,
+    location,
     date, 
     total_cases,
     total_deaths,
@@ -85,7 +85,7 @@ ORDER BY 1,2
 -- Shows percentage of population in US that's had covid
 
 SELECT
-	location,
+    location,
     date, 
     population,
     total_cases,
@@ -97,20 +97,20 @@ ORDER BY 1,2
 -- Looking at areas of North America with highest infection rate compared to population
 
 SELECT
-	location,
+    location,
     population,
     MAX(total_cases) AS highest_infection_count,
     (MAX(total_cases / population)) * 100 AS percent_population_infected
 FROM covid_deaths
 GROUP BY 
-	location,
+    location,
     population
 ORDER BY percent_population_infected DESC
 
 -- Showing countries within North America with highest death count
 
 SELECT
-	location,
+    location,
     MAX(CAST(total_deaths AS unsigned)) AS total_death_count
 FROM covid_deaths
 GROUP BY location
@@ -142,25 +142,25 @@ ORDER BY 1,2
 -- Looking at total population vs vaccination with a cte
 
 WITH pop_vs_vac (
-	location,
+    location,
     date,
     population,
     new_vaccinations,
     rolling_people_vaccinated
 ) AS (
 SELECT
-	dea.location,
+    dea.location,
     dea.date,
     dea.population,
     vac.new_vaccinations,
     SUM(CONVERT(vac.new_vaccinations, unsigned)) 
-		OVER (PARTITION by dea.location ORDER BY dea.location, dea.date) 
+	OVER (PARTITION by dea.location ORDER BY dea.location, dea.date) 
         AS rolling_people_vaccinated
-	-- (rolling_people_vaccinated / population) * 100
+    -- (rolling_people_vaccinated / population) * 100
 FROM covid_deaths dea
 JOIN covid_vaccinations vac
-	ON dea.location = vac.location
-	AND dea.date = vac.date
+    ON dea.location = vac.location
+    AND dea.date = vac.date
 )
 SELECT *, (rolling_people_vaccinated / population) * 100
 FROM pop_vs_vac
@@ -169,16 +169,16 @@ FROM pop_vs_vac
 
 CREATE VIEW rolling_people_vaccinated AS
 SELECT
-	dea.location,
+    dea.location,
     dea.date,
     dea.population,
     vac.new_vaccinations,
     SUM(CONVERT(vac.new_vaccinations, unsigned)) 
-		OVER (PARTITION by dea.location ORDER BY dea.location, dea.date)
-		AS rolling_people_vaccinated
-	-- (rolling_people_vaccinated / population) * 100
+	OVER (PARTITION by dea.location ORDER BY dea.location, dea.date)
+	AS rolling_people_vaccinated
+    -- (rolling_people_vaccinated / population) * 100
 FROM covid_deaths dea
 JOIN covid_vaccinations vac
-	ON dea.location = vac.location
-	AND dea.date = vac.date
+    ON dea.location = vac.location
+    AND dea.date = vac.date
 
