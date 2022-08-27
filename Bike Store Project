@@ -1,0 +1,43 @@
+-- Created a table called bike store
+
+CREATE TABLE bike_store (
+    id INTEGER PRIMARY KEY, 
+    name TEXT,
+    color TEXT, 
+    weight INTEGER,
+    price INTEGER
+);
+
+-- Inserted some values into bike store
+
+INSERT INTO bike_store VALUES
+    (1, "The Hoover", "gray", 10, 200),
+    (2, "The Dovetail", "white", 15, 250),
+    (3, "Twinkee", "yellow", 12, 180),
+    (4, "Bulldozer", "black", 20, 225),
+    (5, "White Lightning", "white", 8, 300),
+    (6, "The Gambler", "red", 16, 250),
+    (7, "Snake-Eyes", "black", 18, 230),
+    (8, "The Bluejay", "blue", 13, 220),
+    (9, "Starfire", "green", 11, 190),
+    (10, "The Crapshoot", "red", 15, 260),
+    (11, "The Silver Bullet", "gray", 8, 320),
+    (12, "Blueberry", "blue", 11, 190),
+    (13, "Lump-O-Coal", "black", 19, 150),
+    (14, "The Sunset", "orange", 15, 235),
+    (15, "Santa Claus", "white", 18, 260)
+;
+
+-- Display the database ordered by price
+
+SELECT * FROM bike_store
+ORDER BY price
+
+-- Ran some basic commands to see which color sells the best
+
+SELECT 
+    color,
+    SUM(price)
+FROM bike_store
+GROUP BY color
+ORDER BY price
