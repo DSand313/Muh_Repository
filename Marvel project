@@ -1,0 +1,116 @@
+-- This dataset deals with various Marvel heroes and villains and various aspects of their abilities.
+-- The dataset is called "marvels" for some reason.
+
+SELECT * FROM marvels;
+
+-- Here, I was just getting some averages for the dataset, so I could make some rankings later.
+
+SELECT 
+    AVG(intelligence),
+    AVG(strength),
+    AVG(speed),
+    AVG(durability),
+    AVG(energy_projection),
+    AVG(fighting_skills)
+FROM marvels;
+
+-- This is where I took the averages from the last query, and made a table listing whether or not the Marvel characters would be considered above or below average in a
+   certain parameter.
+
+SELECT 
+    name,
+    CASE
+        WHEN intelligence > 3.62 THEN "above avg"
+        ELSE "below avg"
+    END AS intelligence_rating,
+    CASE
+        WHEN strength > 4.11 THEN "above avg"
+        ELSE "below avg"
+    END AS strength_rating,
+    CASE
+        WHEN speed > 3.89 THEN "above avg"
+        ELSE "below avg"
+    END AS speed_rating ,
+    CASE 
+        WHEN durability > 4.42 THEN "above avg"
+        ELSE "below avg"
+    END AS durability_rating,
+    CASE
+        WHEN energy_projection > 3.96 THEN "above avg"
+        ELSE "below avg"
+    END AS energy_rating,
+    CASE
+        WHEN fighting_skills > 4.12 THEN "above avg"
+        ELSE "below avg"
+    END AS fighting_rating
+FROM marvels;
+
+-- Here, I just wanted to find out what the max was for each parameter. Turns out, they were all 7.
+
+SELECT 
+    MAX(intelligence),
+    MAX(strength),
+    MAX(speed),
+    MAX(durability),
+    MAX(energy_projection),
+    MAX(fighting_skills)
+FROM marvels;
+
+-- Here, I wanted to get a lit of characters that had at least on parameter that was maxed out. There were quite a few.
+
+SELECT 
+    name,
+    intelligence,
+    strength,
+    speed,
+    durability,
+    energy_projection,
+    fighting_skills
+FROM marvels
+WHERE 
+    intelligence = 7 OR
+    strength = 7 OR
+    speed = 7 OR
+    durability = 7 OR
+    energy_projection = 7 OR
+    fighting_skills = 7;
+
+-- Here, I wanted to see if anyone was maxed out on all of the stats. There was only one; Rogue.
+
+SELECT name
+FROM marvels
+WHERE 
+    intelligence = 7 AND
+    strength = 7 AND
+    speed = 7 AND
+    durability = 7 AND
+    energy_projection = 7 AND
+    fighting_skills = 7;
+    
+-- Here, I wanted to see what the average parameters were depending on their alignment of good, bad, and neutral. Believe it or not, good lost out to both bad and 
+   neutral on all fronts except fighting skills.
+
+SELECT 
+    alignment,
+    AVG(intelligence),
+    AVG(strength),
+    AVG(speed),
+    AVG(durability),
+    AVG(energy_projection),
+    AVG(fighting_skills)
+FROM marvels
+GROUP BY alignment;
+
+-- Here, I wanted to see where the strongest characters were from. It turns out that most of them came from outside the US.
+
+SELECT
+    hometown,
+    ROUND(AVG(intelligence)) AS avg_intelligence,
+    ROUND(AVG(strength)) AS avg_strength,
+    ROUND(AVG(speed)) AS avg_speed,
+    ROUND(AVG(durability)) AS avg_durability,
+    ROUND(AVG(energy_projection)) AS avg_energy,
+    ROUND(AVG(fighting_skills)) AS avg_fighting
+FROM marvels
+GROUP BY hometown
+HAVING COUNT(hometown) > 1;
