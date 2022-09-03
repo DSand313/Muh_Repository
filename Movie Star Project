@@ -1,0 +1,20 @@
+CREATE TABLE movie_stars (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    height_in INTEGER,
+    number_of_movies INTEGER,
+    spouse TEXT,
+    home_state TEXT
+);
+
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Ryan Reynolds", 74, 119, "Blake Lively", "British Columbia");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Tommy Lee Jones", 72, 29, "Dawn Jones", "Texas");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Will Smith", 73, 73, "Jada Pinkett Smith", "Pennsylvania");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Bryan Cranston", 70, 167, "Robin Dearden", "California");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Danny DeVito", 58, 142, "Rhea Perlman", "New Jersey");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Winona Ryder", 63, 68, NULL, "Minnesota");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Sigourney Weaver", 73, 101, "Jim Simpson", "New York");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Matt Damon", 70, 93, "Luciana Barroso", "Massachusetts");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Jeff Bridges", 73, 93, "Susan Bridges", "California");
+INSERT INTO movie_stars (name, height_in, number_of_movies, spouse, home_state) VALUES ("Kumail Nanjiani", 68, 91, "Emily V. Gordon", "Pakistan");
+
