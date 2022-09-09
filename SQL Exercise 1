@@ -1,0 +1,56 @@
+-- Everything here was done with a sample database in SQLite
+-- In this first query, we're searching for the number of orders placed in January
+
+SELECT COUNT (*) 
+FROM BIT_DB.JanSales;
+
+-- Now, we're looking for how many of those January sales were for iPhones
+
+SELECT COUNT(*)
+FROM BIT_DB.JanSales
+WHERE Product = "iPhone";
+
+-- Here, we're looking for the account numbers of everyone who placed an order in February
+
+SELECT acctnum
+FROM BIT_DB.FebSales fs
+INNER JOIN BIT_DB.customers c
+ON fs.orderID = c.order_id;
+
+-- In this query, we're looking for the cheapest product that was sold in January
+-- We're also looking for the price of that product
+
+SELECT 
+    DISTINCT product,
+    price
+FROM BIT_DB.JanSales
+WHERE price = (SELECT MIN(price) FROM BIT_DB.JanSales);
+
+-- Here, we're looking for the total revenue for each product sold in January
+
+SELECT
+    product,
+    ROUND(SUM(quantity) * price) AS revenue
+FROM BIT_DB.JanSales
+GROUP BY product;
+
+-- In this query, we're looking for the products sold in February to a certain address as well as the quantity and total revenue of those products
+
+SELECT
+    product,
+    SUM(quantity),
+    SUM(quantity) * price AS revenue
+FROM BIT_DB.FebSales
+WHERE location = "548 Lincoln St, Seattle, WA 98101"
+GROUP BY
+    product;
+    
+In this last query, we're looking at how many customers ordered more than two products in February as well as the average amount they spent on said products
+
+SELECT 
+    count(cu.acctnum),
+    avg(quantity * price)
+FROM BIT_DB.FebSales fs
+LEFT JOIN BIT_DB.customers cu
+ON fs.orderid = cu.order_id
+WHERE fs.quantity > 2
