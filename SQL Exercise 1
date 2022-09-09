@@ -45,7 +45,7 @@ WHERE location = "548 Lincoln St, Seattle, WA 98101"
 GROUP BY
     product;
     
-In this last query, we're looking at how many customers ordered more than two products in February as well as the average amount they spent on said products
+Here, we're looking at how many customers ordered more than two products in February as well as the average amount they spent on said products
 
 SELECT 
     count(cu.acctnum),
@@ -54,3 +54,32 @@ FROM BIT_DB.FebSales fs
 LEFT JOIN BIT_DB.customers cu
 ON fs.orderid = cu.order_id
 WHERE fs.quantity > 2
+
+-- In this query, we're looking for products and the total quantity of them sold between the dates of February 13th of 2019 and February 18th of 2019
+
+SELECT 
+    product,
+    SUM(quantity) AS total_quantity_sold
+FROM BIT_DB.FebSales
+WHERE orderdate 
+    BETWEEN "02/13/19 00:00" AND "02/18/19 00:00"
+GROUP BY product;
+
+-- In the next three queries, I tried playing around with the "%" operator to get a feel for how the wildcard symbol works
+
+SELECT DISTINCT product
+FROM BIT_DB.FebSales
+WHERE product LIKE "%batteries%";
+
+SELECT DISTINCT 
+    product,
+    price
+FROM BIT_DB.FebSales
+WHERE price like "%.99";
+
+SELECT 
+    Product,
+    SUM(quantity)
+FROM BIT_DB.FebSales
+WHERE location LIKE "%Los Angeles%"
+GROUP BY product
