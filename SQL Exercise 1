@@ -83,3 +83,50 @@ SELECT
 FROM BIT_DB.FebSales
 WHERE location LIKE "%Los Angeles%"
 GROUP BY product
+
+-- In this query, we're looking to see which locations in New York made more than 2 orders in the month of January
+
+SELECT
+    COUNT(orderid),
+    location
+FROM BIT_DB.JanSales
+WHERE location LIKE "%NY%"
+GROUP BY
+    location
+HAVING COUNT(orderid) > 2;
+
+-- In this query, we look at how many of each type of headphone was sold in February
+
+SELECT 
+    product, 
+    SUM(quantity) AS quantity
+FROM BIT_DB.FebSales
+WHERE product LIKE "%headphones%"
+GROUP BY product;
+
+-- In this query, we're looking for the average amount of money spent per account in February
+-- We're not looking for the average amount spent per account, but rather the overall average
+
+SELECT ROUND(SUM(quantity * price) / COUNT(c.acctnum)) 
+    AS avg_amount_spent_per_account
+FROM BIT_DB.FebSales fs
+LEFT JOIN BIT_DB.customers c
+ON fs.orderid = c.order_id;
+
+-- In this query, we're looking at the average quantity of products purchased per account in February
+
+SELECT (SUM(quantity) / COUNT(c.acctnum)) 
+    AS avg_amount_spent_per_account
+FROM BIT_DB.FebSales fs
+LEFT JOIN BIT_DB.customers c
+ON fs.orderid = c.order_id;
+
+-- In this query, we look at the product that brought the most revenue in January and what that revenue was
+
+SELECT 
+    product,
+    SUM(quantity * price) AS total_revenue
+FROM BIT_DB.JanSales
+GROUP BY product
+ORDER BY SUM(quantity * price) DESC
+LIMIT 1
