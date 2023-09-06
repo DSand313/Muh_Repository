@@ -6,6 +6,6 @@ This is a Masterschool project that deals with a funnel analysis. In this case, 
 
 ## Metrocar Funnel Analysis
 
-This is the SQL code for the funnel analysis. In it, I run a basic analysis of the five stages of the funnel: app downloads, signups, ride requests, transactions, and reviews. 
+This is the SQL code for the funnel analysis. In it, I run a few different analyses with varying degrees of granularity regarding the funnel stages.
 
-## Metrocar SQL Insights
+* The first version of code that I run
