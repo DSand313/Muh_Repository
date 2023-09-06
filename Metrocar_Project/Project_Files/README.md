@@ -6,6 +6,6 @@ This is a Masterschool project that deals with a funnel analysis. In this case, 
 
 ## Metrocar Funnel Analysis
 
-This is the SQL code for the funnel analysis. In it, I run a few different analyses with varying degrees of granularity regarding the funnel stages.
-
-* The first version of code that I run
+This is the SQL code for the funnel analysis. In it, I run a few different analyses with varying degrees of granularity regarding the funnel stages: app downloads, signups, ride requests, transactions, and reviews.
+* The first version of code that I run is the most basic version of the funnel that shows the user dropoff rate between each of the five stages. I do it with a "percent of first value" that attaches a percentage of how many users have dropped off relative to the inital funnel stage, which in this case is app downloads.
+* The second version of this funnel is done using a "percent of previous" that 
