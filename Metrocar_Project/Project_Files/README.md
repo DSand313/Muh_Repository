@@ -13,3 +13,7 @@ This is the SQL code for the funnel analysis. In it, I run a few different analy
 * The fourth version of this funnel is the same as the previous one, but with a percent of previous.
 * The fifth version of this funnel expands the stages from 5 to 7, pulling information from 2 more columns from the ride requests table. It also looks at the total ride count dropoff from each stage.
 * My sixth query is the dataset I use for the Tableau visualization. It includes the code for the original 5 stage user funnel with some extra filters for age range, platform (ios, android, web), and download date.
+
+## Metrocar SQL Insights
+
+This part of the project was just to provide some additional data insights and some preparatory queries to check against the actual funnel analysis. It's mostly some basic COUNT functions that look at some basic things like how many times the app was downloaded, how many users signed up through each platform, etc. 
