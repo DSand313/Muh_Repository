@@ -25,9 +25,19 @@ The last part of the Python portion of this project was take each borough and br
 ## NYC Rentals Inquiries
 
 This is the SQL code used to gather further insights into the dataset. There are ten queries that are used to inform further business decisions.
-* The first query looks at the most common room type in the dataset, and this can be used to find out which type of housing accomodations are most popular with guests.
-* Query number two looks at the average price of a listing by room type, and this can be used to find out the acceptable price range for the previously mentioned room types.
+* The first query looks at the most common room type in the dataset, and this can be used to find out which type of housing accomodations 
+  are most popular with guests.
+* Query number two looks at the average price of a listing by room type, and this can be used to find out the acceptable price range for 
+  the previously mentioned room types.
 * Query three look at which borough has the highest average price per month, which can be used to target certain types of guests.
-* Query four looks at how many listings of each type are in each borough, which can be used to see which types of housing situations are popular in a given area.
+* Query four looks at how many listings of each type are in each borough, which can be used to see which types of housing situations are 
+  popular in a given area.
 * Query five looks at which listings have an average of over 500 dollars a night, which can help target higher paying customers.
-* Query six breaks the boroughs down into neighborhoods and look at the min, avg, and max prices per night
+* Query six breaks the boroughs down into neighborhoods and look at the min, avg, and max prices per night for listings in that area.
+* Query seven looks at the yearly revenue brought in by each borough, which can show which boroughs have the highest profit potential.
+* Query eight looks at the average price a month for listings in each neighborhood, which can help find the most popular neighborhoods 
+  and can help target higher paying customers.
+* Query nine looks at all of the listings that have no reviews at all, which can give us insight into potential improvements in the 
+  market.
+* Query ten looks at the correlation coefficient of booked days against the price of the listings in NYC.
+* Query ten looks at 
