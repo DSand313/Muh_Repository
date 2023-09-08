@@ -6,4 +6,7 @@ This is a Masterschool project that takes a look at the short-term rentals situa
 
 ## NYC Rentals Python Cleaning
 
+This is the data cleaning portion of the project and it utilizes Python instead of Excel. There are three files that are imported and they are cleaned individually before being joined together on a shared column.
+* The first file that is uploaded is "prices" and it is a CSV file. It has three columns: listing id(listing_id), the price of the listing per day(prices), and the full name of the neighborhood of the listing(nbhood_full).
+
 ## NYC Rentals Inquiries
