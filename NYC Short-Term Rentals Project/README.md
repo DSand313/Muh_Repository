@@ -14,5 +14,8 @@ This is the data cleaning portion of the project and it utilizes Python instead 
 * The second file is an Excel file that is named "room_types" and it has three columns as well: listing id(listing_id), a description of the room(description), and what kind of room that it is(room_type).
     * To clean this file, the "room_type" column is converted to being all lower case and is converted to a category data type. Then, 
       another variable is created to calculate the sum of how many of each room type there are across all neighborhoods.
+* The last file is a TSV file called "reviews." It has three columns as well: listing id(listing_id), the name of the host's first name(host_name), and the date of the host's last review(last_review). This file seems to be pretty well formatted, so no cleaning was done to it. Instead, this is the point where everything gets joined on the "listing_id" column.
+    * The combined file gets a little bit of cleaning in that we use a method on the newly created variable to drop any missing values 
+      from the merge. A new variable is made based off of the "room_type" file where the "room_type" column is separated by boroughs and then some summary statistics are then run to get a more full and clear picture of the state of the short-term rental market in NYC.
 
 ## NYC Rentals Inquiries
