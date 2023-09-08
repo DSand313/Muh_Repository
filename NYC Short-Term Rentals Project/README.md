@@ -20,5 +20,5 @@ This is the data cleaning portion of the project and it utilizes Python instead 
       then some summary statistics are then run to get a more full and clear picture of the state of the short-term rental market in NYC. 
       The sum, mean, and median of the price column is taken, as well as the count of the listing_id column. These are then all grouped 
       onto the newly created borough column.
-The last part of the Python portion of this project was take each borough and break them down by affordability which were ranked as budget, average, expensive, and extravagent.
+The last part of the Python portion of this project was take each borough and break them down by affordability which were ranked as budget, average, expensive, and extravagent to get a better idea of which areas were more affordable than others.
 ## NYC Rentals Inquiries
