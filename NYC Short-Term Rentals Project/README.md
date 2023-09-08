@@ -8,5 +8,11 @@ This is a Masterschool project that takes a look at the short-term rentals situa
 
 This is the data cleaning portion of the project and it utilizes Python instead of Excel. There are three files that are imported and they are cleaned individually before being joined together on a shared column.
 * The first file that is uploaded is "prices" and it is a CSV file. It has three columns: listing id(listing_id), the price of the listing per day(prices), and the full name of the neighborhood of the listing(nbhood_full).
+    * The first step for cleaning this file was to get rid of the "dollars" string and any white space out of the "price" column. After 
+      that we take a monthly average of the prices of all neighborhoods across New York City and compare it to the monthly average price 
+      of private rentals.
+* The second file is an Excel file that is named "room_types" and it has three columns as well: listing id(listing_id), a description of the room(description), and what kind of room that it is(room_type).
+    * To clean this file, the "room_type" column is converted to being all lower case and is converted to a category data type. Then, 
+      another variable is created to calculate the sum of how many of each room type there are across all neighborhoods.
 
 ## NYC Rentals Inquiries
