@@ -40,4 +40,3 @@ This is the SQL code used to gather further insights into the dataset. There are
 * Query nine looks at all of the listings that have no reviews at all, which can give us insight into potential improvements in the 
   market.
 * Query ten looks at the correlation coefficient of booked days against the price of the listings in NYC.
-* Query ten looks at 
