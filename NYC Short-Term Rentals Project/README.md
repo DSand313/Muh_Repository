@@ -21,4 +21,13 @@ This is the data cleaning portion of the project and it utilizes Python instead 
       The sum, mean, and median of the price column is taken, as well as the count of the listing_id column. These are then all grouped 
       onto the newly created borough column.
 The last part of the Python portion of this project was take each borough and break them down by affordability which were ranked as budget, average, expensive, and extravagent to get a better idea of which areas were more affordable than others.
+
 ## NYC Rentals Inquiries
+
+This is the SQL code used to gather further insights into the dataset. There are ten queries that are used to inform further business decisions.
+* The first query looks at the most common room type in the dataset, and this can be used to find out which type of housing accomodations are most popular with guests.
+* Query number two looks at the average price of a listing by room type, and this can be used to find out the acceptable price range for the previously mentioned room types.
+* Query three look at which borough has the highest average price per month, which can be used to target certain types of guests.
+* Query four looks at how many listings of each type are in each borough, which can be used to see which types of housing situations are popular in a given area.
+* Query five looks at which listings have an average of over 500 dollars a night, which can help target higher paying customers.
+* Query six breaks the boroughs down into neighborhoods and look at the min, avg, and max prices per night
