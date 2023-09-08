@@ -16,6 +16,9 @@ This is the data cleaning portion of the project and it utilizes Python instead 
       another variable is created to calculate the sum of how many of each room type there are across all neighborhoods.
 * The last file is a TSV file called "reviews." It has three columns as well: listing id(listing_id), the name of the host's first name(host_name), and the date of the host's last review(last_review). This file seems to be pretty well formatted, so no cleaning was done to it. Instead, this is the point where everything gets joined on the "listing_id" column.
     * The combined file gets a little bit of cleaning in that we use a method on the newly created variable to drop any missing values 
-      from the merge. A new variable is made based off of the "room_type" file where the "room_type" column is separated by boroughs and then some summary statistics are then run to get a more full and clear picture of the state of the short-term rental market in NYC.
-
+      from the merge. A new variable is made based off of the "room_type" file where the "room_type" column is separated by boroughs and 
+      then some summary statistics are then run to get a more full and clear picture of the state of the short-term rental market in NYC. 
+      The sum, mean, and median of the price column is taken, as well as the count of the listing_id column. These are then all grouped 
+      onto the newly created borough column.
+The last part of the Python portion of this project was take each borough and break them down by affordability which were ranked as budget, average, expensive, and extravagent.
 ## NYC Rentals Inquiries
